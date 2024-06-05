@@ -1,0 +1,73 @@
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 50px 30px 50px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+
+  border-bottom: #000 2px solid;
+
+  width: 100vw;
+}
+
+header h1{
+  border-bottom: #000 2px solid;
+}
+
+header a{
+  color: #000;
+}
+
+main{
+  width: 100vw;
+}
+
+.filters_section{
+  width: 90%;
+  margin: auto;
+
+  border: #000 2px solid;
+  padding: 30px;
+
+  margin-bottom: 40px;
+}
+
+.filters_section h1{
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.filters_container{
+  display: flex;
+  gap: 40px;
+
+  margin-bottom: 30px;
+}
+
+.filters_container select{
+  width: 100px;
+}
+
+.filters_section button{
+  padding: 10px 20px 10px 20px;
+
+  background-color: grey;
+  color: white;
+  border-radius: 10px;
+
+  border: black 1px solid;
+
+}
+
+.dataTable_section{
+  width: 90%;
+  margin: auto;
+
+  border: #000 2px solid;
+  padding: 30px;
+}
+
+
