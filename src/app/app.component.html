@@ -12,45 +12,53 @@
         <div class="filters_container">
           <div class="filter">
             <h3>Region</h3>
-            <select name="region_filter" id="region_filter">
-              <option value="">a</option>
-              <option value="">b</option>
-              <option value="">c</option>
-              <option value="">d</option>
+            <select name="region_filter" id="region_filter" [(ngModel)]="filtros.regiao">
+              <option value="Atlantico Norte">Atlantico Norte</option>
+              <option value="Atlantico Sul">Atlantico Sul</option>
+              <option value="Pacifico Norte">Pacifico Norte</option>
+              <option value="Pacifico Sul">Pacifico Sul</option>
+              <option value="Indico">Indico</option>
+              <option value="Artico">Artico</option>
+              <option value="Antartico">Antartico</option>
             </select>
           </div>
           <div class="filter">
             <h3>Species</h3>
-            <select name="species_filter" id="species_filter">
-              <option value="">a</option>
-              <option value="">b</option>
-              <option value="">c</option>
-              <option value="">d</option>
+            <select name="species_filter" id="species_filter" [(ngModel)]="filtros.especies">
+              <option value="Baleia-azul">Baleia-azul</option>
+              <option value="Tubarao-branco">Tubarao-branco</option>
+              <option value="Peixe-palhaco">Peixe-palhaco</option>
+              <option value="Tartaruga-verde">Tartaruga-verde</option>
+              <option value="Coral">Coral</option>
             </select>
           </div>
           <div class="filter">
             <h3>Conservation Status</h3>
-            <select name="conservStatus_filter" id="conservStatus_filter">
-              <option value="">a</option>
-              <option value="">b</option>
-              <option value="">c</option>
-              <option value="">d</option>
+            <select name="conservStatus_filter" id="conservStatus_filter" [(ngModel)]="filtros.statusConservacao">
+              <option value="Ameacada">Ameacada</option>
+              <option value="Vulneravel">Vulneravel</option>
+              <option value="Menos preocupante">Menos preocupante</option>
+              <option value="Criticamente ameacado">Criticamente ameacado</option>
             </select>
           </div>
           <div class="filter">
             <h3>Water Temperature</h3>
-            <input type="text" id="waterTemp_filter">
+            <input type="text" id="waterTemp_filter" [(ngModel)]="filtros.temperaturaAgua">
           </div>
           <div class="filter">
             <h3>pH</h3>
-            <input type="text" id="waterPH_filter">
+            <input type="text" id="waterPH_filter" [(ngModel)]="filtros.PH" (change)="log($event)">
           </div>
           <div class="filter">
             <h3>Polution Levels</h3>
-            <input type="text" id="polutionLevel_filter">
+            <select name="conservStatus_filter" id="conservStatus_filter" [(ngModel)]="filtros.nivelPoluicao" (change)="log($event)">
+              <option value="Baixo">Baixo</option>
+              <option value="Moderado">Moderado</option>
+              <option value="Alto">Alto</option>
+            </select>
           </div>
         </div>
-        <button>Search</button>
+        <button (click)="search()">Search</button>
       </div>
 
       <div class="dataTable_section">
@@ -58,16 +66,22 @@
         <table>
           <thead>
             <th>
-              <tr>Column 1</tr>
+              <tr>Região</tr>
             </th>
             <th>
-              <tr>Column 2</tr>
+              <tr>Temperatura</tr>
             </th>
             <th>
-              <tr>Column 3</tr>
+              <tr>pH</tr>
             </th>
             <th>
-              <tr>Column 4</tr>
+              <tr>Poluição</tr>
+            </th>
+            <th>
+              <tr>Espécie - Nome</tr>
+            </th>
+            <th>
+              <tr>Espécie - Status</tr>
             </th>
           </thead>
           <tbody>
@@ -76,25 +90,8 @@
               <td>Data2</td>
               <td>Data3</td>
               <td>Data4</td>
-
-            </tr>
-            <tr>
-              <td>Data1</td>
-              <td>Data2</td>
-              <td>Data3</td>
-              <td>Data4</td>
-            </tr>
-            <tr>
-              <td>Data1</td>
-              <td>Data2</td>
-              <td>Data3</td>
-              <td>Data4</td>
-            </tr>
-            <tr>
-              <td>Data1</td>
-              <td>Data2</td>
-              <td>Data3</td>
-              <td>Data4</td>
+              <td>Data5</td>
+              <td>Data6</td>
             </tr>
           </tbody>
         </table>

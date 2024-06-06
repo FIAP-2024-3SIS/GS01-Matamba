@@ -70,4 +70,6 @@ main{
   padding: 30px;
 }
 
-
+.dataTable_section table{
+  text-align: center;
+}
