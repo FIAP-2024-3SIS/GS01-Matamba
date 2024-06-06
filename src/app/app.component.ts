@@ -30,6 +30,7 @@ export class AppComponent {
 
   search() {
     this.linhasTable = [];
+    this.filtros.pagina = 1;
 
     this.http.get(`https://fiap-3sis-gs-20241.azurewebsites.net/OceanData?regiao=${this.filtros.regiao}&especie=${this.filtros.especie}&statusConservacao=${this.filtros.statusConservacao}&temperaturaMin=${this.filtros.temperaturaAgua}&temperaturaMax=${this.filtros.temperaturaAgua}&phMin=${this.filtros.PH}&phMax=${this.filtros.PH}&nivelPoluicao=${this.filtros.nivelPoluicao}&pagina=${this.filtros.pagina}&qtde=3`).subscribe((condicoesApi: any) => {
 
@@ -53,10 +54,71 @@ export class AppComponent {
     })
   }
 
+  previous() {
+    if (this.filtros.pagina - 1 <= 0 || this.linhasTable.length == 0) return;
+    this.filtros.pagina--;
+    this.http.get(`https://fiap-3sis-gs-20241.azurewebsites.net/OceanData?regiao=${this.filtros.regiao}&especie=${this.filtros.especie}&statusConservacao=${this.filtros.statusConservacao}&temperaturaMin=${this.filtros.temperaturaAgua}&temperaturaMax=${this.filtros.temperaturaAgua}&phMin=${this.filtros.PH}&phMax=${this.filtros.PH}&nivelPoluicao=${this.filtros.nivelPoluicao}&pagina=${this.filtros.pagina}&qtde=3`).subscribe((condicoesApi: any) => {
+      if(Object.keys(condicoesApi).length == 0){
+        this.filtros.pagina++;
+        return;
+      }
+
+      this.linhasTable = [];
+
+      condicoesApi.forEach((condicao: any) => {
+        condicao.especies.forEach((condicaoEspecies: any) => {
+
+          this.linhasTable.push({
+            regiao: condicao.regiao,
+            temperatura: condicao.temperaturaAgua,
+            ph: condicao.pH,
+            nivelPoluicao: condicao.nivelPoluicao,
+            especieNome: condicaoEspecies.nome,
+            especieStatus: condicaoEspecies.status,
+          });
+
+
+        })
+      })
+      console.log(this.linhasTable);
+
+    })
+  }
+
+  next() {
+    if (this.linhasTable.length == 0) return;
+    this.filtros.pagina++;
+    this.http.get(`https://fiap-3sis-gs-20241.azurewebsites.net/OceanData?regiao=${this.filtros.regiao}&especie=${this.filtros.especie}&statusConservacao=${this.filtros.statusConservacao}&temperaturaMin=${this.filtros.temperaturaAgua}&temperaturaMax=${this.filtros.temperaturaAgua}&phMin=${this.filtros.PH}&phMax=${this.filtros.PH}&nivelPoluicao=${this.filtros.nivelPoluicao}&pagina=${this.filtros.pagina}&qtde=3`).subscribe((condicoesApi: any) => {
+      if(Object.keys(condicoesApi).length == 0){
+        this.filtros.pagina--;
+        return;
+      }
+
+
+      this.linhasTable = [];
+
+      condicoesApi.forEach((condicao: any) => {
+        condicao.especies.forEach((condicaoEspecies: any) => {
+
+          this.linhasTable.push({
+            regiao: condicao.regiao,
+            temperatura: condicao.temperaturaAgua,
+            ph: condicao.pH,
+            nivelPoluicao: condicao.nivelPoluicao,
+            especieNome: condicaoEspecies.nome,
+            especieStatus: condicaoEspecies.status,
+          });
+
+
+        })
+      })
+      console.log(this.linhasTable);
+
+    })
+  }
 
   log(teste: any) {
     console.log(teste.target.value)
   }
-
 
 }

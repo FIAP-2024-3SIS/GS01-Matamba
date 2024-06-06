@@ -13,6 +13,7 @@
           <div class="filter">
             <h3>Region</h3>
             <select name="region_filter" id="region_filter" [(ngModel)]="filtros.regiao">
+              <option value="">-</option>
               <option value="Atlântico Norte">Atlântico Norte</option>
               <option value="Atlântico Sul">Atlântico Sul</option>
               <option value="Pacífico Norte">Pacífico Norte</option>
@@ -25,6 +26,7 @@
           <div class="filter">
             <h3>Species</h3>
             <select name="species_filter" id="species_filter" [(ngModel)]="filtros.especie">
+              <option value="">-</option>
               <option value="Baleia-azul">Baleia-azul</option>
               <option value="Tubarão-branco">Tubarão-branco</option>
               <option value="Peixe-palhaço">Peixe-palhaço</option>
@@ -35,6 +37,7 @@
           <div class="filter">
             <h3>Conservation Status</h3>
             <select name="conservStatus_filter" id="conservStatus_filter" [(ngModel)]="filtros.statusConservacao">
+              <option value="">-</option>
               <option value="Ameaçada">Ameaçada</option>
               <option value="Vulnerável">Vulnerável</option>
               <option value="Menos preocupante">Menos preocupante</option>
@@ -52,6 +55,7 @@
           <div class="filter">
             <h3>Polution Levels</h3>
             <select name="conservStatus_filter" id="conservStatus_filter" [(ngModel)]="filtros.nivelPoluicao" (change)="log($event)">
+              <option value="">-</option>
               <option value="Baixo">Baixo</option>
               <option value="Moderado">Moderado</option>
               <option value="Alto">Alto</option>
@@ -95,8 +99,8 @@
             </tr>
           </tbody>
         </table>
-        <button>Previous</button>
-        <button>Next</button>
+        <button (click)="previous()" >Previous</button>
+        <button (click)="next()">Next</button>
       </div>
     </main>
 </div>
