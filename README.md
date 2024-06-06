@@ -1,27 +1,31 @@
-# GS01Matamba
+# GS01
+## Integrantes do grupo
+Nome: Vinicius Rodrigues da Silva
+RM: 95828
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+Nome: Kaua Vieira da Silva
+RM: 95485
 
-## Development server
+Nome: Lucas Nunes Caetano
+RM 93537
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
+## Imagem da aplicação funcionando
+![Imagem da aplicação funcionando](/public/images/aplicacao.png)
 
-## Code scaffolding
+## Link do repositório no github
+https://github.com/FIAP-2024-3SIS/GS01-Matamba
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## Instruções para a execução da aplicação
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clonar o projeto em sua máquina: Pode ser feito acessando o terminal de comando e executando ``git clone https://github.com/FIAP-2024-3SIS/GS01-Matamba.git``
 
-## Running unit tests
+2. Executar o comando ``npm i -g @angular/cli``
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Acesse a pasta do projeto no terminal de comando e execute o comando: ``npm i``
 
-## Running end-to-end tests
+4. Execute o comando ``ng serve -o`` para executar a aplicação na porta **localhost:4200**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+5. A aplicação será aberta no navegador e estará pronta para uso.
